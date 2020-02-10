@@ -6,15 +6,18 @@
     </head> 
     <body> 
         <% 
-        String username=request.getParameter("username"); 
-        String password=request.getParameter("password"); 
-        if((username.equals("anurag") && password.equals("jain"))) 
+        String username=request.getParameter("id"); 
+        String password=request.getParameter("mdp"); 
+        if((username.equals('${client.code}') && password.equals('${client.contact}'))) 
             {
-            session.setAttribute("username",username); 
-            response.sendRedirect("Home.jsp"); 
+            session.setAttribute("id",id); 
+            response.sendRedirect("client.jsp"); 
             } 
-        else 
-            response.sendRedirect("Error.jsp"); 
+        if((username.equals("Administrateur") && password.equals("Code"))) 
+            {
+            session.setAttribute("id",id); 
+            response.sendRedirect("administrateur.html"); 
+            } 
         %> 
     </body> 
 </html>
