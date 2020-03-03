@@ -54,17 +54,40 @@ public class DonneesPersoEditorController {
         models.put("client", c);
     }
     
-    /*@POST
-    public void editDonneesClient(
-        @QueryParam("code") String codeClient) {
+    @POST
+    @ValidateOnExecution(type = ExecutableType.ALL)
+    public void editDonneesClient(@QueryParam("code") String codeClient) {
+        Client c = facade.find(codeClient);
+        //c.setRegion(formData.getRegion());
         // On utilise le DAO pour trouver le client 
         // qui correspond au paramètre
-        Client c = facade.edit(codeClient);
+        //Client c = facade.edit(codeClient);
         // TODO : gérer les erreurs : et si le client n'existe pas ?
         // On transmet les informations à la vue
-        models.put("client", c);
-    }*/
+        //models.put("client", c);
+    }    
+    
 
 }
 
-
+/*@POST
+	@ValidateOnExecution(type = ExecutableType.ALL)	
+	public void create(@Valid @BeanParam CategorieForm formData) {
+		if ( ! formValidationErrors.isFailed()) { // Pas d'erreurs de saisie dans le formulaire
+			// On crée la nouvelle catégorie
+			Categorie nouvelle = new Categorie();
+			nouvelle.setLibelle(formData.getLibelle());
+			nouvelle.setDescription(formData.getDescription());
+			// On l'enregistre dans la base
+			try {
+				dao.create(nouvelle);
+			} catch (EJBException e) {
+				// Erreur possible : il existe déjà une catégorie avec ce libellé
+				Logger.getLogger("Comptoirs").log(Level.INFO, "Echec{0}", e.getLocalizedMessage());
+				// On pourrait examiner l'exception pour vérifier sa cause exacte
+				models.put("databaseErrorMessage", "La catégorie '" + formData.getLibelle() + "' existe déjà");
+			}
+		}
+		models.put("validationErrors", formValidationErrors);
+		models.put("categories", dao.findAll());
+	}	*/
