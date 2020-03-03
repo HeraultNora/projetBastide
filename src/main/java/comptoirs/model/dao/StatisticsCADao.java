@@ -1,6 +1,6 @@
 package comptoirs.model.dao;
 
-import comptoirs.model.dto.StatsResult;
+import comptoirs.model.dto.StatsCAResult;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -8,25 +8,25 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Stateless
-public class StatisticsDao {
-	private static final String UNITS_SOLD = 
-		"SELECT cat.libelle, SUM(li.quantite) " +
+public class StatisticsCADao {
+	private static final String CACateg_SOLD = 
+		"SELECT cat.libelle, SUM(li.quantite*p.Prix_unitaire) " +
 		"FROM Categorie cat " + 
 		"JOIN cat.produitCollection p " + 
 		"JOIN p.ligneCollection li " + 
 		"GROUP BY cat.libelle";
 	
-	private static final String UNIT_SOLDS_DTO =
-		"SELECT new comptoirs.model.dto.StatsResult" +
-		"(cat.libelle, SUM(li.quantite)) " + 
+	private static final String CACateg_SOLD_DTO =
+		"SELECT new comptoirs.model.dto.StatsCAResult" +
+		"(cat.libelle, SUM(li.quantite*p.Prix_unitaire)) " + 
 		"FROM Categorie cat " +
 		"JOIN cat.produitCollection p " + 
 		"JOIN p.ligneCollection li " + 
 		"GROUP BY cat.libelle";
 	
-	private static final String PRODUCTS_SOLDS_DTO =
+	private static final String CAPRODUCTS_SOLDS_DTO =
 		"SELECT new comptoirs.model.dto.StatsResult" +
-				        "(p.nom, SUM(li.quantite)) " + 
+				        "(p.nom, SUM(li.quantite*p.Prix_unitaire)) " + 
 		"FROM Produit p " +
 		"JOIN p.categorie cat " +
 		"JOIN p.ligneCollection li " + 
@@ -36,20 +36,20 @@ public class StatisticsDao {
 	@PersistenceContext(unitName = "comptoirs")
 	private EntityManager em;
 
-	public List unitesVenduesParCategorie() {
-		Query query = em.createQuery(UNITS_SOLD);
+	public List CAParCategorie() {
+		Query query = em.createQuery(CACateg_SOLD);
 		List results = query.getResultList();
 		return results;
 	}
 
-	public List<StatsResult> unitesVenduesParCategorieDTO() {
-		Query query = em.createQuery(UNIT_SOLDS_DTO, StatsResult.class);
-		List<StatsResult> results = query.getResultList();
+	public List<StatsCAResult> CAParCategorieDTO() {
+		Query query = em.createQuery(CACateg_SOLD_DTO, StatsCAResult.class);
+		List<StatsCAResult> results = query.getResultList();
 		return results;
 	}		
 	
-	public List<StatsResult> produitsVendusPour(Integer codeCategorie) {
-		Query query = em.createQuery(PRODUCTS_SOLDS_DTO, StatsResult.class);
+	public List<StatsCAResult> CAproduitsVendusPour(Integer codeCategorie) {
+		Query query = em.createQuery(CAPRODUCTS_SOLDS_DTO, StatsCAResult.class);
 		List<StatsResult> results = query.setParameter("code", codeCategorie).getResultList();
 		return results;
 	}

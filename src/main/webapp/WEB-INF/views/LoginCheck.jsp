@@ -16,7 +16,7 @@
         if((username.equals("Administrateur") && password.equals("Code"))) 
             {
             session.setAttribute("id",id); 
-            response.sendRedirect("administrateur.html"); 
+            response.sendRedirect("administrateur.jsp"); 
             } 
         %> 
     </body> 

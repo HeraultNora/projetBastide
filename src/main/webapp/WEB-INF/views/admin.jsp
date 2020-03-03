@@ -1,3 +1,10 @@
+<%-- 
+    Document   : admin
+    Created on : 3 mars 2020, 14:28:16
+    Author     : Nora
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>

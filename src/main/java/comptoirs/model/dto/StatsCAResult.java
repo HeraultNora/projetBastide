@@ -7,26 +7,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * un "Data Transfer Object" (DTO) pour les statistiques
- * "Unités vendues par catégorie"
+ * "CA par catégorie"
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class StatsResult {
+public class StatsCAResult {
 
-	public StatsResult(String libelle, Long unites) {
+	public StatsCAResult(String libelle, Long unites, Long prix) {
 		this.unites = unites;
 		this.libelle = libelle;
+                this.prix = prix;
 	}
 	
-	public StatsResult() {
+	public StatsCAResult() {
 		this("Inconnu", 0l);
 	}
-
+	
 	// Pas utile de mettre des "getter" ici (final)
 	@XmlElement
 	public final Long unites;
 
 	@XmlElement
 	public final String libelle;
+
+        @XmlElement
+	public final Long prix;
 	
 }
