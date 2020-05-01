@@ -4,7 +4,8 @@
     Author     : Nora
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,10 +15,10 @@
     <body>
         <h1>Plateforme Client</h1>
             <ul>
-		<li><a href="showAllCommandes.jsp">Visualiser mes commandes</a></li>
-		<li><a href="showProductsCategories.jsp">Catalogue des articles</a></li>
-		<li><a href="panier.jsp">Pannier</a></li>	
-                <li><a href="mesDonnees.jsp">Mes données</a></li>
+		<li><a href="mvc/showAllCommandes">Visualiser mes commandes</a></li>
+		<li><a href="mvc/showProductsCategories">Catalogue des articles</a></li>
+		<li><a href="mvc/panier">Pannier</a></li>	
+                <li><a href="mvc/mesDonnees">Mes données</a></li>
             </ul>
     </body>
 </html>
