@@ -1,24 +1,18 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html> 
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <title>LoginCheck.jsp</title> 
+        <title>Log in</title> 
     </head> 
     <body> 
-        <% 
-        String username=request.getParameter("id"); 
-        String password=request.getParameter("mdp"); 
-        if((username.equals('${client.code}') && password.equals('${client.contact}'))) 
-            {
-            session.setAttribute("id",id); 
-            response.sendRedirect("client.jsp"); 
-            } 
-        if((username.equals("Administrateur") && password.equals("Code"))) 
-            {
-            session.setAttribute("id",id); 
-            response.sendRedirect("administrateur.jsp"); 
-            } 
-        %> 
+        <h1>Indentification</h1>
+        <form method="POST">
+            id : <input type="text" name="contact"><br>
+            code : <input type="password" name="code"><br>
+            <input type="submit" value="Connexion">
+        </form>    
+        <a href ="${pageContext.request.contextPath}">testtest</a>
     </body> 
 </html>
 
