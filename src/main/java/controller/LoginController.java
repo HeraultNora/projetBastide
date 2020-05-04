@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+/*package controller;
 
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.entity.Client;
@@ -51,3 +51,4 @@ public class LoginController {
         return null;
     }
 }
+*/
