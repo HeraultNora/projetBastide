@@ -60,7 +60,7 @@
                 </tr>
             </table>
             <br>
-            <a  href="mvc/donneesPersoEditor"><input type="button" name="nom" value="Modifier mes données" href="mvc/donneesPersoEditor"></a>
+            <a  href="donneesPersoEditor"><input type="button" name="nom" value="Modifier mes données"></a>
 
         </form>
 
