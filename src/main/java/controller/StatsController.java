@@ -13,8 +13,8 @@ import javax.ws.rs.Path;
 
 
 @Controller
-@Path("statsProduitsPourCategorie")
-@View("statsProduitsPourCategorie.jsp")
+@Path("statsParCategorie")
+@View("statsParCategorie.jsp")
 public class StatsController {
 	@Inject 
 	CategorieFacade dao;
