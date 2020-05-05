@@ -23,6 +23,10 @@
 				<%-- Exemple d'utilisation des fonctions de formatage de données de la JSTL --%>
 				<td><fmt:formatNumber value="${produit.prixUnitaire}" type="currency"/></td>
 				<td>${mvc.encoders.html(produit.categorie.libelle)}</td>
+                                <td>
+                                    <input type="number" min="0">
+                                    <input type="submit" value="+">
+                                </td>
 			</tr>
 		</c:forEach>
 	</table>
