@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*package controller;
+package controller;
 
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.entity.Client;
@@ -13,42 +13,50 @@ import javax.mvc.View;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 @Path("LoginCheck")
 @View("LoginCheck.jsp")
 public class LoginController {
-    @Inject
+
+    @Inject // Le DAO généré par netBeans
     ClientFacade dao;
-    
+
     @Inject
     Models models;
-    
+
     @Inject
-    clientController client;
-    
+    SessionClient client;
+
+    @GET
+    public void show() {
+        models.put("client", dao.findAll());
+    }
+
     @POST
-    @ValidateOnExecution(type = ExecutableType.All)
-    public String login(@FormParam("contact") String contact, @FormParam("code") String code){
-        if((contact.equals("admin")) && (code.equals("mdp"))){
+    @ValidateOnExecution(type = ExecutableType.ALL)
+    public String connexion(
+            @FormParam("contact") String contact, 
+            @FormParam("code") String code) {
+        if (contact.equals("adminId") && code.equals("adminMdp")) {
             return "redirect:admin";
-        }
-        else{
-            try{
+        } else {
+            try {
                 Client p = dao.find(code);
-                if(p.getContact().equals(contact)){
+                if (p.getContact().equals(contact)) {
                     client.setCode(code);
                     return "redirect:client";
+
+                } else {
+                    models.put("databaseErrorMessage", "Erreur d'id");
                 }
-                else{
-                    models.put("databaseErrorMessage", "Cet id est inconnu.");
-                }
-            }catch (Exception e) {
-                models.put("databaseErrorMessage", "Mot de pass erroné.");
+            } catch (Exception e) {
+                models.put("databaseErrorMessage", "Erreur de mot de passe");
             }
         }
+
         return null;
     }
 }
-*/

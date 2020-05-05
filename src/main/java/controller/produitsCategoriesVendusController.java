@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import comptoirs.model.dao.CategorieFacade;
 import java.util.List;
@@ -48,3 +48,4 @@ public class produitsCategoriesVendusController {
 		models.put("selected", categorieChoisie);
 	}
 }
+*/
