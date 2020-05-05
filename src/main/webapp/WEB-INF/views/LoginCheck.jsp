@@ -12,7 +12,7 @@
             code : <input type="password" name="code"><br>
             <input type="submit" value="Connexion">
         </form>    
-        <a href ="${pageContext.request.contextPath}">testtest</a>
+        <a href ="${pageContext.request.contextPath}">Retour à l'accueil</a>
     </body> 
 </html>
 
