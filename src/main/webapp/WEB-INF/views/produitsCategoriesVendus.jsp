@@ -13,7 +13,8 @@
 		<h3>Choisissez la catégorie à afficher</h3>
 		<form> 	<%-- L'action par défaut est de revenir à l'URL du contrôleur --%>
 			<%-- Une liste de choix pour le paramètre 'code' --%>
-			<select name='code' onchange='this.form.submit()'>
+                        <select name='code' onchange='this.form.submit()'>
+            
 				<%-- On parcourt la liste des catégories en mettant une option pour chaque catégorie --%>
                                 <option value='${produits}' selected="selected">Toutes les catégories</option>
                                 <c:forEach var="categorie" items="${categories}">
