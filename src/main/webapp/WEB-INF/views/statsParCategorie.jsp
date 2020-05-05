@@ -22,7 +22,7 @@
 			var dataTable = google.visualization.arrayToDataTable(data);
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-			var options = {title: 'Unités vendues par produit'};
+			var options = {title: 'Unités vendues par categorie'};
 			chart.draw(dataTable, options);
 		}
 
@@ -46,18 +46,8 @@
 	</script>
 </head>
 <body>
-	<h1>Produits vendus pour une catégorie</h1>
-	<p>Illustre le passage de paramètres dans un appel AJAX</p>
-	<%-- Un formulaire pour choisir la catégorie à afficher --%>
-	<%-- On pourrait également faire un appel AJAX pour aller chercher la liste des catégories --%>
-	<form id="formulaireCategorie">
-		<select name='code' onchange='doAjax()'>
-			<c:forEach var="categorie" items="${categories}">
-				<option value='${categorie.code}'>${categorie.libelle}</option>
-			</c:forEach>
-		</select>
-		<%-- Pas de 'submit', on fait un appel AJAX --%>
-	</form>	
+	<h1>Produits vendus par catégorie</h1>
+
 	<!-- Le graphique apparaît ici -->
 	<div id="piechart" style="width: 1000px; height: 500px;"></div>
 	<hr>
