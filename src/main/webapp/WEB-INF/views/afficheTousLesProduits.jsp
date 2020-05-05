@@ -13,7 +13,7 @@
 	<h1>Liste des produits</h1>
 	<a href="produitsCategoriesVendus">Afficher les produits par catégorie</a>
 	<table border='1'>
-		<tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th><th>Ajouter au panier</th></tr>
+		<tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th><th>Quantité</th><th>Ajouter au panier</th></tr>
 		<%-- Pour chaque produit, une ligne dans la table HTML --%>
 		<c:forEach var="produit" items="${afficheTousLesProduits}">
 			<tr>
@@ -29,6 +29,8 @@
 				<td>${mvc.encoders.html(produit.categorie.libelle)}</td>
                                 <td>
                                     <input type="number" name="qte" min="0">
+                                </td>
+                                <td>
                                     <input type="submit" value="+">
                                 </td>
 			</tr>

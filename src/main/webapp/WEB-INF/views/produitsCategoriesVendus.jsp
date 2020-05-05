@@ -34,7 +34,7 @@
 		<%-- On montre la liste des produits dans la catégorie sélectionnée sous la forme d'une table HTML --%>		
                 <form method="POST">
                     <table border='1'>
-                            <tr><th>Référence</th><th>Nom</th><th>Ajouter au panier</th></tr>
+                            <tr><th>Référence</th><th>Nom</th><th>Quantité</th><th>Ajouter au panier</th></tr>
                             <%-- Est-ce qu'il y a des produits dans la catégorie sélectionnée ? --%>
                             <c:if test="${empty selected.produitCollection}">
                                     <tr><td colspan="3">aucun produit dans cette catégorie</td></tr>	
@@ -50,6 +50,8 @@
                                         </td>
                                         <td>
                                             <input type="number" name="qte" min="0">
+                                        </td>
+                                        <td>
                                             <input type="submit" value="+">
                                         </td>
                                     </tr>
