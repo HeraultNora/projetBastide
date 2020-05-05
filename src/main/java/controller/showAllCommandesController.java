@@ -19,18 +19,20 @@ import javax.ws.rs.QueryParam;
 @Path("showAllCommandes") // Le chemin d'accès au contrôleur
 @View("showAllCommandes.jsp") // La vue qui affiche le résultat
 public class showAllCommandesController {
+
     @Inject // Le DAO (auto-généré) qui gère les entités "Client"
-  ClientFacade facade;
-  @Inject
-  Models models; // Pour transmettre les infos à la vue
-  @GET
-  public void afficheCommandesPourLeClient(
-    @QueryParam("code") String codeClient ) {
-    // On utilise le DAO pour trouver le client 
-    // qui correspond au paramètre
-    Client c = facade.find(codeClient); 
-    // TODO : gérer les erreurs : et si le client n'existe pas ?
-    // On transmet les informations à la vue
-    models.put("client", c);
- }
+    ClientFacade facade;
+    
+    @Inject
+    SessionClient client;
+    
+    @Inject
+    Models models; // Pour transmettre les infos à la vue
+
+    @GET
+    public void afficheCommandesPourLeClient(
+        @QueryParam("code") String codeClient) {
+        Client c = facade.find(client.getCodeClient());
+        models.put("client", c);
+    }
 }

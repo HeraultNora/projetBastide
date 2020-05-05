@@ -37,10 +37,12 @@ public class DonneesPersoEditorController {
     BindingResult formValidationErrors;
     @Inject
     Models models; // Pour transmettre les infos à la vue
+    @Inject
+    SessionClient client;
 
     @GET
     public void afficheDonneesClient(@QueryParam("code") String codeClient) {
-        Client c = facade.find(codeClient);
+        Client c = facade.find(client.getCodeClient());
         models.put("client", c);
     }
 
@@ -80,7 +82,7 @@ public class DonneesPersoEditorController {
             } catch (Exception e) {
                 models.put("test", e);
             }
-            return "redirect:mesDonnees";
+            return "redirect:pageClient";
 
         }
     }
