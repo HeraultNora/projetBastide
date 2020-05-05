@@ -7,7 +7,7 @@
         <title>Connexion</title> 
     </head> 
     <body> 
-        <h1>Indentification</h1>
+        <h1>Identification</h1>
         <form method="POST">
             id : <input type="text" name="contact"><br>
             code : <input type="password" name="code"><br>
