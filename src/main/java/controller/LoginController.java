@@ -34,7 +34,7 @@ public class LoginController {
 
     @GET
     public void show() {
-        models.put("client", dao.findAll());
+
     }
 
     @POST
@@ -43,13 +43,13 @@ public class LoginController {
             @FormParam("contact") String contact, 
             @FormParam("code") String code) {
         if (contact.equals("adminId") && code.equals("adminMdp")) {
-            return "redirect:admin";
+            return "redirect:adminPage";
         } else {
             try {
                 Client p = dao.find(code);
                 if (p.getContact().equals(contact)) {
                     client.setCode(code);
-                    return "redirect:client";
+                    return "redirect:pageClient";
 
                 } else {
                     models.put("databaseErrorMessage", "Erreur d'id");
