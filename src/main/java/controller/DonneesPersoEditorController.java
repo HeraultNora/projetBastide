@@ -27,6 +27,7 @@ import javax.mvc.binding.BindingResult;
 import javax.validation.Valid;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
 
 /**
@@ -60,30 +61,42 @@ public class DonneesPersoEditorController {
 
     @POST
     @ValidateOnExecution(type = ExecutableType.ALL)
-    public void editDonneesClient(@Valid @BeanParam DonneePersoForm formData, @QueryParam("code") String codeClient) {
-        if (!formValidationErrors.isFailed()) {
+    public String editDonneesClient(
+            @FormParam("code") String code,
+            @FormParam("societe") String societe,
+            @FormParam("contact") String contact,
+            @FormParam("fonction") String fonction,
+            @FormParam("adresse") String adresse,
+            @FormParam("ville") String ville,
+            @FormParam("region") String region,
+            @FormParam("cp") String cp,
+            @FormParam("pays") String pays,
+            @FormParam("tel") String tel,
+            @FormParam("fax") String fax) {
+        if (formValidationErrors.isFailed()) {
+            return "redirect:/projetBastide";
+        } else {
             Client c = new Client();
-            c = facade.find(codeClient);
-            c.setSociete(formData.getSociete());
-            c.setContact(formData.getContact());
-            c.setFonction(formData.getFonction());
-            c.setAdresse(formData.getAdresse());
-            c.setVille(formData.getVille());
-            c.setRegion(formData.getRegion());
-            c.setCodePostal(formData.getCp());
-            c.setPays(formData.getPays());
-            c.setTelephone(formData.getTel());
-            c.setFax(formData.getFax());
+            c.setCode(code);
+            c.setSociete(societe);
+            c.setContact(contact);
+            c.setFonction(fonction);
+            c.setAdresse(adresse);
+            c.setVille(ville);
+            c.setRegion(region);
+            c.setCodePostal(cp);
+            c.setPays(pays);
+            c.setTelephone(tel);
+            c.setFax(fax);
+            try {
+
+                facade.create(c);
+
+            } catch (Exception e) {
+                models.put("test", e);
+            }
+            return "redirect:mesDonnees";
+
         }
-        //try {
-            //dao.create(c);
-        //} catch (EJBException e) {
-            // Erreur possible : il existe déjà une catégorie avec ce libellé
-            //Logger.getLogger("Comptoirs").log(Level.INFO, "Echec{0}", e.getLocalizedMessage());
-            // On pourrait examiner l'exception pour vérifier sa cause exacte
-            //models.put("databaseErrorMessage", "La catégorie '" + formData.getLibelle() + "' existe déjà");
-        //}
-        //models.put("validationErrors", formValidationErrors);
-        //models.put("categories", dao.findAll());
     }
 }
