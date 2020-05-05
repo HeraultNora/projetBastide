@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import comptoirs.model.dao.CategorieFacade;
 import java.util.List;
@@ -34,7 +34,7 @@ public class produitsCategoriesVendusController {
 	@GET
 	public void produitsParCategorie( @QueryParam("code") Integer codeCategorie ) {
 		// On cherche la liste des catégories pour l'afficher dans la liste de choix
-		final List<Categorie> touteslesCategories = facadeC.findAll();
+                List<Categorie> touteslesCategories = facadeC.findAll();
 		// On cherche la catégorie à partir de son code passé en paramètre
 		Categorie categorieChoisie;
 		if (codeCategorie != null) // Est-ce qu'on a un paramètre ?
@@ -48,4 +48,4 @@ public class produitsCategoriesVendusController {
 		models.put("selected", categorieChoisie);
 	}
 }
-*/
+
