@@ -5,15 +5,24 @@
  */
 
 package controller;
-
 /**
  *
  * @author perla
  */
 @controller
-@path(pageClient)
-@view(pageClient.jsp)
+@path("pageClient")
+@view("pageClient.jsp")
 
 public class PageClientController {
+    @Inject
+    ClientFacade facade;
+
+    @Inject 
+    Models models;
+
+    @GET
+    public void show(){
+        models.put("pageClient", facade.findAll());
+}
 
 }
