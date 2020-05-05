@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import comptoirs.model.dao.CategorieFacade;
 import java.util.List;
@@ -30,27 +30,22 @@ public class produitsCategoriesVendusController {
 
 	@Inject
 	Models models;
-
-	@GET
-	@View("showAllProduits.jsp")
-	public void show() {
-		models.put("produits", facadeP.findAll());
-	}
 	
 	@GET
 	public void produitsParCategorie( @QueryParam("code") Integer codeCategorie ) {
 		// On cherche la liste des catégories pour l'afficher dans la liste de choix
-		final List<Categorie> touteslesCategories = facadeC.findAll();
+                List<Categorie> touteslesCategories = facadeC.findAll();
 		// On cherche la catégorie à partir de son code passé en paramètre
 		Categorie categorieChoisie;
 		if (codeCategorie != null) // Est-ce qu'on a un paramètre ?
 			// On va chercher la catégorie 
 			categorieChoisie = facadeC.find(codeCategorie); // Et si on ne trouve pas ?
-
+		else
+			// On prend la première de la liste (encore faut-il qu'il y en ait une !)
+			categorieChoisie = touteslesCategories.get(0);
 		// On transmet les informations à la vue
 		models.put("categories", touteslesCategories);
 		models.put("selected", categorieChoisie);
-                models.put("produits", facadeP.findAll());
 	}
 }
-*/
+
