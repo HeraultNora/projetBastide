@@ -17,14 +17,18 @@
 		<%-- Pour chaque produit, une ligne dans la table HTML --%>
 		<c:forEach var="produit" items="${afficheTousLesProduits}">
 			<tr>
-				<td>${produit.reference}</td>
+				<td>
+                                    <label name="refPdt">${produit.reference}</label> 
+                                </td>
 				<%-- Le nom peut contenir des caractères spéciaux HTML ! --%>
-				<td>${mvc.encoders.html(produit.nom)}</td>
+				<td>
+                                    <label name="nomPdt">${mvc.encoders.html(produit.nom)}</label>
+                                </td>
 				<%-- Exemple d'utilisation des fonctions de formatage de données de la JSTL --%>
 				<td><fmt:formatNumber value="${produit.prixUnitaire}" type="currency"/></td>
 				<td>${mvc.encoders.html(produit.categorie.libelle)}</td>
                                 <td>
-                                    <input type="number" min="0">
+                                    <input type="number" name="qte" min="0">
                                     <input type="submit" value="+">
                                 </td>
 			</tr>
