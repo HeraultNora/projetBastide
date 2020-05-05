@@ -8,6 +8,7 @@ package controller;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.entity.Client;
 import javax.inject.Inject;
+import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
 import javax.validation.executable.ExecutableType;
@@ -17,6 +18,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
+@Controller
 @Path("LoginCheck")
 @View("LoginCheck.jsp")
 public class LoginController {
