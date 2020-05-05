@@ -14,11 +14,14 @@
     </head>
     <body>
         <h1>Plateforme Client</h1>
-            <ul>
-		<li><a href="showAllCommandes">Visualiser mes commandes</a></li>
-		<li><a href="showProductsCategories">Catalogue des articles</a></li>
-		<li><a href="panier">Pannier</a></li>	
-                <li><a href="mesDonnees">Mes données</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><a href="showAllCommandes">Visualiser mes commandes</a></li>
+                    <li><a href="afficheTousLesProduits">Catalogue des articles</a></li>
+                    <li><a href="monPanier">Panier</a></li>	
+                    <li><a href="mesDonnees">Mes données</a></li>
+                </ul>
+            </nav>
+            
     </body>
 </html>
