@@ -29,7 +29,7 @@
 		// Afficher les unités vendues pour la catégorie choisie
 		function doAjax() {
 			$.ajax({
-				url: "service/unitesVendues/produits",
+				url: "service/unitesVendues/categories",
 				// Les données saisies dans le formlaire
 				data : $('#formulaireCategorie').serialize(),
 				dataType: "json",
