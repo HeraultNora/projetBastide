@@ -8,7 +8,9 @@ package controller;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.mvc.Controller;
 
+@Controller
 @SessionScoped
 @Named("Client")
 public class SessionClient implements Serializable {
