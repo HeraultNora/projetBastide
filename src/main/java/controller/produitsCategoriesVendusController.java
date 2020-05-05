@@ -3,10 +3,7 @@ package controller;
 import comptoirs.model.dao.CategorieFacade;
 import java.util.List;
 
-import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Categorie;
-import comptoirs.model.entity.Produit;
-
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -22,9 +19,6 @@ import comptoirs.model.entity.Categorie;
 @Path("produitsCategoriesVendus")
 @View("produitsCategoriesVendus.jsp")
 public class produitsCategoriesVendusController {
-	@Inject
-	ProduitFacade facadeP;
-
 	@Inject
 	CategorieFacade facadeC;
 
