@@ -8,7 +8,7 @@
         <title>Mes commandes</title>
     </head>
     <body>
-        <h1>Commandes pour le client ${client.societe}</h1>
+        <h1>Vos commandes</h1>
         <table border='1'>
             <tr><th>Numéro</th><th>Saisie le</th><th>nb. lignes</th></tr>
                     <%-- Pour chaque commande, une ligne dans la table HTML --%>
