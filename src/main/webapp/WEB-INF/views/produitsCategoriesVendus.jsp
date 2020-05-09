@@ -10,6 +10,7 @@
     </head>
 
     <body>
+        <a href="monPanier">Voir mon panier</a>
         <a href="afficheTousLesProduits">Afficher tous les produits</a>
         <h3>Choisissez la catégorie à afficher</h3>
         <form> 	
@@ -60,6 +61,6 @@
             </table>
         </form>
         <hr>
-        <a href="${pageContext.request.contextPath}/">Retour au menu</a>
+        <a href="pageClient">Retour au menu</a>
         <hr>	
 </html>

@@ -11,6 +11,7 @@
 
     <body>
         <h1>Liste des produits</h1>
+        <a href="monPanier">Voir mon panier</a>
         <a href="produitsCategoriesVendus">Afficher les produits par catégorie</a>
         <form mathod="POST">
             <table border='1'>
@@ -26,7 +27,7 @@
                             <label name="nom">${mvc.encoders.html(produit.nom)}</label>
                         </td>
                         <td>
-                            <label name="prix">{produit.prixUnitaire}</label>
+                            <label name="prix">${produit.prixUnitaire}</label>
                         </td>
                         <td>
                             <label name="categ">${mvc.encoders.html(produit.categorie.libelle)}</label>
@@ -41,7 +42,7 @@
                 </c:forEach>
             </table>
         </form>
-        <a href="${pageContext.request.contextPath}/">Retour au menu</a>
+        <a href="pageClient">Retour au menu</a>
     </body>
 
 </html>

@@ -3,17 +3,11 @@ package controller;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.LigneFacade;
 import comptoirs.model.dao.ProduitFacade;
-import comptoirs.model.entity.Client;
-
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
-import javax.validation.executable.ExecutableType;
-import javax.validation.executable.ValidateOnExecution;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 @Controller
@@ -37,6 +31,8 @@ public class monPanierController {
     ProduitFacade pFacade;
     
     @GET
-    public void show(){}
+    public void show(){
+        models.put("produits", pFacade.findAll());
+    }
     
 }
