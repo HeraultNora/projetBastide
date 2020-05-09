@@ -5,38 +5,43 @@
 
 <html>
 
-<head>
-	<title>Affiche tous les produits</title>
-</head>
+    <head>
+        <title>Affiche tous les produits</title>
+    </head>
 
-<body>
-	<h1>Liste des produits</h1>
-	<a href="produitsCategoriesVendus">Afficher les produits par catégorie</a>
-	<table border='1'>
-		<tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th><th>Quantité</th><th>Ajouter au panier</th></tr>
-		<%-- Pour chaque produit, une ligne dans la table HTML --%>
-		<c:forEach var="produit" items="${afficheTousLesProduits}">
-			<tr>
-				<td>
-                                    <label name="refPdt">${produit.reference}</label> 
-                                </td>
-				<%-- Le nom peut contenir des caractères spéciaux HTML ! --%>
-				<td>
-                                    <label name="nomPdt">${mvc.encoders.html(produit.nom)}</label>
-                                </td>
-				<%-- Exemple d'utilisation des fonctions de formatage de données de la JSTL --%>
-				<td><fmt:formatNumber value="${produit.prixUnitaire}" type="currency"/></td>
-				<td>${mvc.encoders.html(produit.categorie.libelle)}</td>
-                                <td>
-                                    <input type="number" name="qte" min="0">
-                                </td>
-                                <td>
-                                    <input type="submit" value="+">
-                                </td>
-			</tr>
-		</c:forEach>
-	</table>
-	<a href="${pageContext.request.contextPath}/">Retour au menu</a>
-</body>
+    <body>
+        <h1>Liste des produits</h1>
+        <a href="produitsCategoriesVendus">Afficher les produits par catégorie</a>
+        <form mathod="POST">
+            <table border='1'>
+                <tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th><th>Quantité</th><th>Ajouter au panier</th></tr>
+                        <%-- Pour chaque produit, une ligne dans la table HTML --%>
+                        <c:forEach var="produit" items="${afficheTousLesProduits}">
+                    <tr>
+                        <td>
+                            <input type="text" name="ref" value="${produit.reference}" disabled/> 
+                        </td>
+                        <%-- Le nom peut contenir des caractères spéciaux HTML ! --%>
+                        <td>
+                            <input type="text" name="nom" value="${mvc.encoders.html(produit.nom)}" disabled/>
+                        </td>
+                        <td>
+                            <input type="text" name="nom" value="${produit.prixUnitaire}" disabled/>
+                        </td>
+                        <td>
+                            <input type="text" name="categ" value="${mvc.encoders.html(produit.categorie.libelle)}" disabled/>
+                        </td>
+                        <td>
+                            <input type="number" name="qte" min="0">
+                        </td>
+                        <td>
+                            <input type="submit" value="Ajouter">
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
+        <a href="${pageContext.request.contextPath}/">Retour au menu</a>
+    </body>
 
 </html>

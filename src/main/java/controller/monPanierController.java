@@ -1,6 +1,8 @@
 package controller;
 
 import comptoirs.model.dao.ClientFacade;
+import comptoirs.model.dao.LigneFacade;
+import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Client;
 
 import javax.inject.Inject;
@@ -27,5 +29,14 @@ public class monPanierController {
 
     @Inject
     SessionPanier panier;
-
+    
+    @Inject 
+    LigneFacade lFacade;
+    
+    @Inject
+    ProduitFacade pFacade;
+    
+    @GET
+    public void show(){}
+    
 }
