@@ -12,7 +12,7 @@
     <body>
         <a href="afficheTousLesProduits">Afficher tous les produits</a>
         <h3>Choisissez la catégorie à afficher</h3>
-        <form method="POST"> 	
+        <form> 	
             <%-- L'action par défaut est de revenir à l'URL du contrôleur --%>
             <%-- Une liste de choix pour le paramètre 'code' --%>
             <select name='code' onchange='this.form.submit()'>
@@ -44,7 +44,7 @@
                 <c:forEach var="produit" items="${selected.produitCollection}">
                     <tr>
                         <td>
-                            <label name="refPdt">${produit.reference}</label> 
+                            <input type="text" name="ref" value="${produit.reference}" disabled/> 
                         </td>
                         <td>
                             <label name="nomPdt">${mvc.encoders.html(produit.nom)}</label>

@@ -11,7 +11,6 @@ import javax.ws.rs.Path;
 import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Ligne;
 import comptoirs.model.entity.Produit;
-import java.math.BigDecimal;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.FormParam;
@@ -60,7 +59,7 @@ public class afficheTousLesProduitsController {
             lFacade.create(uneLigne);
 
             panier.addLignePanier(uneLigne);
-            models.put("new ligne panier", panier);
+            models.put("new ligne panier (all)", panier);
         }
     }
 }
