@@ -23,13 +23,13 @@
                         </td>
                         <%-- Le nom peut contenir des caractères spéciaux HTML ! --%>
                         <td>
-                            <input type="text" name="nom" value="${mvc.encoders.html(produit.nom)}" disabled/>
+                            <label name="nom">${mvc.encoders.html(produit.nom)}</label>
                         </td>
                         <td>
-                            <input type="text" name="nom" value="${produit.prixUnitaire}" disabled/>
+                            <label name="prix">{produit.prixUnitaire}</label>
                         </td>
                         <td>
-                            <input type="text" name="categ" value="${mvc.encoders.html(produit.categorie.libelle)}" disabled/>
+                            <label name="categ">${mvc.encoders.html(produit.categorie.libelle)}</label>
                         </td>
                         <td>
                             <input type="number" name="qte" min="0">
