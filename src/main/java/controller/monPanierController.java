@@ -3,6 +3,7 @@ package controller;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.LigneFacade;
 import comptoirs.model.dao.ProduitFacade;
+import comptoirs.model.entity.Ligne;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -30,9 +31,13 @@ public class monPanierController {
     @Inject
     ProduitFacade pFacade;
     
+    @Inject
+    Ligne ligne;
+    
     @GET
     public void show(){
-        models.put("produits", pFacade.findAll());
+        models.put("affiche le contenu du panier", panier.getPanierLignes());
+        
     }
     
 }

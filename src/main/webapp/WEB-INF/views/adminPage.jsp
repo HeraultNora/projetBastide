@@ -14,9 +14,17 @@
     </head>
     <body>
         <h1>Plateforme administrateur</h1>
+            <ul>
+                <li><a href="creationProduit.jsp">Créer un produit</a></li>
+                <li><a href="categorieEditor.jsp">Créer un produit</a></li>
+                <li><a href="#">CA par clients</a></li>
+                <li><a href="#">CA par articles</a></li>
+                <li><a href="#">CA par pays</a></li>
+                <li><a href="statsParCategorie">CA par categories</a></li>
+                <li><a href="${pageContext.request.contextPath}">Se déconnecter</a></li>
+            </ul>
+ 
         <h2>Période</h2>
-        <h3>Chiffre d'affaires par articles</h3>
-        <h3>Chiffre d'affaires par pays</h3>
-        <h3>Chiffre d'affaires par client</h3>
+        
     </body>
 </html>

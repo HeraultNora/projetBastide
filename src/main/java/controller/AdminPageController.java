@@ -45,7 +45,7 @@ public class AdminPageController {
     //panier
 
     @GET
-    @View("adminPAge.jsp")
+    @View("adminPage.jsp")
     public void show() {
     }
 }

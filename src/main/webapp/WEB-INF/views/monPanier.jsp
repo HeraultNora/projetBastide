@@ -4,18 +4,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Caddie</title>
+        <title>Panier</title>
         <link rel="stylesheet" href="Caddie.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     <body>
         <h1>Votre Panier</h1>
 
         <table border='1' id="customers">
-            <tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th><th> </th></tr>
+            <tr><th>Référence</th><th>Nom</th><th>Prix Unitaire</th><th>Catégorie</th></tr>
                     <%-- Pour chaque produit, une ligne dans la table HTML --%>
-            <c:if test="${test eq ok}">
-                <c:forEach var="ligne" items="${panierLignes}">
+            
+            <c:forEach var="ligne" items="${panier.getPanierLignes}">
                     <tr>
                         <td>${ligne.produit1.reference}</td>
                         <td>${mvc.encoders.html(ligne.produit1.nom)}</td>
@@ -23,7 +23,7 @@
                         <td>${mvc.encoders.html(ligne.produit1.categorie.libelle)}</td>
                     </tr>
                 </c:forEach>
-            </c:if>
+
         </table>
 
     </body>

@@ -20,7 +20,7 @@ import javax.ws.rs.Path;
 
 @Controller
 @Path("LoginCheck")
-@View("LoginCheck.jsp")
+
 public class LoginController {
 
     @Inject // Le DAO généré par netBeans
@@ -33,6 +33,7 @@ public class LoginController {
     SessionClient client;
 
     @GET
+    @View("LoginCheck.jsp")
     public void show() {
 
     }

@@ -20,6 +20,7 @@
                     <li><a href="afficheTousLesProduits">Catalogue des articles</a></li>
                     <li><a href="monPanier">Panier</a></li>	
                     <li><a href="mesDonnees">Mes données</a></li>
+                    <li><a href="${pageContext.request.contextPath}">Se déconnecter</a></li>
                 </ul>
             </nav>
             
