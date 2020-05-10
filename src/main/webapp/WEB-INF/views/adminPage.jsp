@@ -18,7 +18,7 @@
                 <li><a href="creationProduit.jsp">Créer un produit</a></li>
                 <li><a href="categorieEditor.jsp">Créer un produit</a></li>
                 <li><a href="#">CA par clients</a></li>
-                <li><a href="#">CA par articles</a></li>
+                <li><a href="statsProduitsPArCategorie">CA articles par categories</a></li>
                 <li><a href="#">CA par pays</a></li>
                 <li><a href="statsParCategorie">CA par categories</a></li>
                 <li><a href="${pageContext.request.contextPath}">Se déconnecter</a></li>

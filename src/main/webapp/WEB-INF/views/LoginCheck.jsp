@@ -13,6 +13,6 @@
             code : <input type="password" name="code"><br>
             <input type="submit" value="Connexion">
         </form>    
-        <!--<a href ="${pageContext.request.contextPath}">Retour à l'accueil</a>-->
+        <a href ="${pageContext.request.contextPath}">Retour</a>
     </body> 
 </html>
