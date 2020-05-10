@@ -47,7 +47,6 @@
 </head>
 <body>
 	<h1>Produits vendus pour une catégorie</h1>
-	<p>Illustre le passage de paramètres dans un appel AJAX</p>
 	<%-- Un formulaire pour choisir la catégorie à afficher --%>
 	<%-- On pourrait également faire un appel AJAX pour aller chercher la liste des catégories --%>
 	<form id="formulaireCategorie">
@@ -61,5 +60,5 @@
 	<!-- Le graphique apparaît ici -->
 	<div id="piechart" style="width: 1000px; height: 500px;"></div>
 	<hr>
-	<a href="${pageContext.request.contextPath}/">Retour au menu</a>
+	<a href="adminPage">Retour</a>
 </body>

@@ -2,6 +2,7 @@ package service;
 
 import comptoirs.model.dao.StatisticsDao;
 import comptoirs.model.dto.StatsResult;
+import comptoirs.model.dto.StatsResultCateg;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -36,4 +37,18 @@ public class StatisticsService {
 		List result = dao.unitesVenduesParCategorie();
 		return result;
 	}
+        
+         @GET
+        @Path("clients")
+        @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+        public List<StatsResultCateg> prixUnitesVenduesParClientJSON() {
+            return dao.prixUnitesVenduesParClientDTO();
+        }
+        
+        @GET
+        @Path("pays")
+        @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+        public List<StatsResultCateg> prixUnitesVenduesParPaysJSON() {
+            return dao.prixUnitesVenduesParPaysDTO();
+        }
 }
