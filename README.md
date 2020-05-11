@@ -1,6 +1,4 @@
-# projetBastide
-
-Voici les contributions de chacun des membres :
+# Contributions de chacun des membres du groupe dans le projet
 
 Emma : panier + log in + modif champs client + graphiques
 
